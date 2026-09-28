@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="UTF-8">
+<title>Login - TravelBuddy</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(to bottom,#fff5f2,#f0f4ff);
+}
+
+.navbar{
+background:#ff6b35;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+color:white;
+font-size:22px;
+font-weight:bold;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:bold;
+}
+
+.container{
+max-width:400px;
+margin:80px auto;
+background:white;
+padding:30px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+text-align:center;
+}
+
+input{
+width:100%;
+padding:10px;
+margin:10px 0;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+button{
+background:#1e3a8a;
+color:white;
+border:none;
+padding:10px;
+border-radius:5px;
+cursor:pointer;
+width:100%;
+}
+
+button:hover{
+background:#142a63;
+}
+
+.error{
+color:red;
+font-size:14px;
+}
+
+.message{
+text-align:center;
+padding:30px;
+color:#555;
+}
+
+.footer{
+background:#1e3a8a;
+color:white;
+padding:30px;
+text-align:center;
+}
+
+.footer a{
+color:#ff6b35;
+text-decoration:none;
+margin:0 10px;
+}
+
+</style>
+
+<script>
+function validateLogin(){
+
+let email=document.getElementById("email").value.trim();
+let password=document.getElementById("password").value;
+let error=document.getElementById("error");
+
+error.innerHTML="";
+
+
+let pattern=/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+if(!pattern.test(email)){
+error.innerHTML="Enter valid email";
+return false;
+}
+
+
+if(password.length<6){
+error.innerHTML="Password must be at least 6 characters";
+return false;
+}
+
+return true;
+}
+</script>
+
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">🌍 TravelBuddy</div>
+
+<div class="nav-links">
+<a href="index.jsp">Home</a>
+<a href="explore.jsp">Explore</a>
+<a href="register.html">Register</a>
+</div>
+</div>
+
+<div class="container">
+
+<h2>Login</h2>
+
+<form action="login.jsp" method="post" onsubmit="return validateLogin()">
+
+<input type="email" id="email" name="email" placeholder="Email" required>
+
+<input type="password" id="password" name="password" placeholder="Password" required>
+
+<p id="error" class="error"></p>
+
+<button type="submit">Login</button>
+
+</form>
+
+<p>Don't have an account? <a href="register.html">Register</a></p>
+
+</div>
+
+<div class="message">
+<p>Start your journey with TravelBuddy and explore amazing destinations with new friends.</p>
+</div>
+
+<div class="footer">
+
+<p>TravelBuddy - Making group travel easy and fun.</p>
+
+<p>
+<a href="index.jsp">About</a> |
+<a href="index.jsp">Contact</a> |
+<a href="index.jsp">FAQ</a> |
+<a href="index.jsp">Safety</a>
+</p>
+
+<p>TravelBuddy</p>
+
+</div>
+
+</body>
+</html>

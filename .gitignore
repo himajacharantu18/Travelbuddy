@@ -1,0 +1,16 @@
+# Eclipse & Build
+build/
+.metadata/
+*.class
+bin/
+
+# Environment & Credentials
+.env
+*.env.*
+*.key
+*.pem
+*.log
+
+# OS Generated
+.DS_Store
+Thumbs.db

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="UTF-8">
+<title>Explore Trips - TravelBuddy</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(to bottom,#fff5f2,#f0f4ff);
+}
+
+.navbar{
+background:#ff6b35;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+color:white;
+font-size:22px;
+font-weight:bold;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:bold;
+}
+
+.section{
+padding:50px;
+text-align:center;
+}
+
+.section h2{
+color:#ff6b35;
+}
+
+.search-box{
+margin:30px auto;
+max-width:700px;
+}
+
+.search-box input,
+.search-box select{
+padding:10px;
+margin:5px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+.search-box button{
+background:#1e3a8a;
+color:white;
+border:none;
+padding:10px 20px;
+border-radius:5px;
+cursor:pointer;
+}
+
+.search-box button:hover{
+background:#142a63;
+}
+
+.cards{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:25px;
+padding:20px;
+}
+
+.card{
+background:white;
+width:260px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+overflow:hidden;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card img{
+width:100%;
+height:160px;
+object-fit:cover;
+}
+
+.card h3{
+margin:10px;
+}
+
+.card p{
+margin:0 10px 10px;
+color:gray;
+}
+
+.card button{
+background:#1e3a8a;
+color:white;
+border:none;
+padding:8px 15px;
+border-radius:5px;
+cursor:pointer;
+margin-bottom:10px;
+}
+
+.footer{
+background:#1e3a8a;
+color:white;
+padding:40px;
+text-align:center;
+}
+
+.footer a{
+color:#ff6b35;
+text-decoration:none;
+margin:0 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+<div class="logo">TravelBuddy</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="explore.html">Explore</a>
+<a href="create.html">Create Trip</a>
+<a href="profile.html">Profile</a>
+<a href="login.html">Login</a>
+</div>
+</div>
+
+
+<div class="section">
+
+<h2>Explore Trips</h2>
+
+<div class="search-box">
+
+<input type="text" id="searchBox" placeholder="Destination">
+
+<select>
+<option>Travel Style</option>
+<option>Adventure</option>
+<option>Beach</option>
+<option>Nature</option>
+<option>City</option>
+</select>
+
+<button onclick="searchAgain()">Search</button>
+
+</div>
+
+</div>
+
+
+<div class="cards">
+
+<div class="card">
+<img src="images/manali1.jpg">
+<h3>Manali Adventure</h3>
+<p>5 Days • 6 Travelers</p>
+<a href="manali.html"><button>View Details</button></a>
+</div>
+
+<div class="card">
+<img src="images/goa1.jpg">
+<h3>Goa Beach Trip</h3>
+<p>4 Days • 5 Travelers</p>
+<a href="goa.html"><button>View Details</button></a>
+</div>
+
+<div class="card">
+<img src="images/kerala1.jpg">
+<h3>Kerala Escape</h3>
+<p>6 Days • 4 Travelers</p>
+<a href="kerala.html"><button>View Details</button></a>
+</div>
+
+<div class="card">
+<img src="images/ladakhroad.jpg">
+<h3>Ladakh Road Trip</h3>
+<p>7 Days • 5 Travelers</p>
+<a href="ladakh.html"><button>View Details</button></a>
+</div>
+
+<div class="card">
+<img src="images/jaipur1.jpg">
+<h3>Jaipur Culture Trip</h3>
+<p>3 Days • 4 Travelers</p>
+<a href="jaipur.html"><button>View Details</button></a>
+</div>
+
+<div class="card">
+<img src="images/rishikesh1.jpg">
+<h3>Rishikesh Adventure</h3>
+<p>4 Days • 5 Travelers</p>
+<a href="rishikesh.html"><button>View Details</button></a>
+</div>
+
+
+<div class="card">
+<img src="images/varanasi.jpg">
+<h3>Varanasi Spiritual Trip</h3>
+<p>5 Days • 4 Travelers</p>
+<a href="varanasi.html"><button>View Details</button></a>
+</div>
+
+<div class="card">
+<img src="images/darjeeling1.jpg">
+<h3>Darjeeling Hill Station Trip</h3>
+<p>5 Days • 4 Travelers</p>
+<a href="darjeeling.html"><button>View Details</button></a>
+</div>
+
+</div>
+
+
+<p id="noResult" style="display:none; text-align:center; font-size:18px; color:red;">
+No trips available for your search.
+</p>
+
+
+<script>
+function searchAgain(){
+    let value = document.getElementById("searchBox").value;
+
+    if(value.trim() === ""){
+        alert("Enter destination");
+        return;
+    }
+
+    window.location.href = "explore.html?search=" + value;
+}
+</script>
+
+<script>
+
+let params = new URLSearchParams(window.location.search);
+let search = params.get("search");
+
+if(search){
+    search = search.toLowerCase();
+
+    let cards = document.querySelectorAll(".card");
+    let found = false;
+
+    cards.forEach(card => {
+        let title = card.innerText.toLowerCase();
+
+        if(title.includes(search)){
+            found = true;
+        } else {
+            card.style.display = "none";
+        }
+    });
+
+    if(!found){
+        document.getElementById("noResult").style.display = "block";
+    }
+}
+
+</script>
+
+
+<div class="footer">
+
+<h2>TravelBuddy</h2>
+
+<p>Making group travel easy and fun.</p>
+
+<p>
+<a href="index.jsp">About</a> |
+<a href="index.jsp">Contact</a> |
+<a href="index.jsp">FAQ</a> |
+<a href="index.jsp">Safety</a>
+</p>
+
+<p>TravelBuddy</p>
+
+</div>
+
+</body>
+</html>

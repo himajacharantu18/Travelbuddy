@@ -1,0 +1,27 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Start Tomcat",
+            "type": "shell",
+            "command": "C:\\Users\\paava\\Downloads\\apache-tomcat-10.1.36\\bin\\startup.bat",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Stop Tomcat",
+            "type": "shell",
+            "command": "C:\\Users\\paava\\Downloads\\apache-tomcat-10.1.36\\bin\\shutdown.bat",
+            "group": "build",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

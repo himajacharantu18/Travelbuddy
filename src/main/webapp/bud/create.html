@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset ="UTF-8">
+<title>Create Trip - TravelBuddy</title>
+
+<style>
+
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(to bottom,#fff5f2,#f0f4ff);
+}
+
+.navbar{
+background:#ff6b35;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo{
+color:white;
+font-size:22px;
+font-weight:bold;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:25px;
+font-weight:bold;
+}
+
+
+.container{
+max-width:700px;
+margin:70px auto;
+background:white;
+padding:40px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,0.1);
+}
+
+.container h2{
+text-align:center;
+color:#ff6b35;
+}
+
+input, select, textarea{
+width:100%;
+padding:10px;
+margin:10px 0 20px;
+border-radius:5px;
+border:1px solid #ccc;
+}
+
+
+button{
+background:#1e3a8a;
+color:white;
+border:none;
+padding:12px;
+border-radius:5px;
+cursor:pointer;
+width:100%;
+font-size:16px;
+}
+
+button:hover{
+background:#142a63;
+}
+
+.footer{
+background:#1e3a8a;
+color:white;
+padding:30px;
+text-align:center;
+margin-top:60px;
+}
+
+.footer a{
+color:#ff6b35;
+text-decoration:none;
+margin:0 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+<div class="logo">🌍 TravelBuddy</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="explore.jsp">Explore</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="profile.jsp">Profile</a>
+</div>
+
+</div>
+
+<div class="container">
+
+<h2>Create a New Trip</h2>
+
+<form action="create.jsp" method="post">
+
+<label>Trip Destination</label>
+<input type="text" name="destination" placeholder="Enter destination" required>
+
+<label>Trip Cover Image</label>
+<input type="file" name="image">
+
+<label>Start Date</label>
+<input type="date" name="start_date" required>
+
+<label>End Date</label>
+<input type="date" name="end_date" required>
+
+<label>Meeting Location</label>
+<input type="text" name="location" placeholder="City where travelers will meet">
+
+<label>Maximum Travelers</label>
+<input type="number" name="max_people" placeholder="Number of people">
+
+<label>Travel Style</label>
+<select name="style">
+<option value="Adventure">Adventure</option>
+<option value="Beach">Beach</option>
+<option value="Nature">Nature</option>
+<option value="City">City</option>
+</select>
+
+<label>Budget</label>
+<select name="budget">
+<option value="Low">Low Budget</option>
+<option value="Medium">Medium Budget</option>
+<option value="Luxury">Luxury</option>
+</select>
+
+<label>Trip Highlights</label>
+<textarea name="highlights" rows="3" placeholder="Example: trekking, sightseeing"></textarea>
+
+<label>Trip Description</label>
+<textarea name="description" rows="4" placeholder="Describe the trip plan..." required></textarea>
+
+<button type="submit">Create Trip</button>
+
+</form>
+
+</div>
+
+<div class="footer">
+
+<p>TravelBuddy - Making group travel easy and fun.</p>
+
+<p>
+<a href="index.jsp">About</a> |
+<a href="index.jsp">Contact</a> |
+<a href="index.jsp">FAQ</a> |
+<a href="index.jsp">Safety</a>
+</p>
+
+<p>TravelBuddy</p>
+
+</div>
+
+</body>
+</html>
